@@ -2,3 +2,4 @@ node_modules/
 *.log
 INTERVIEW.md
 .DS_Store
+MOCK.md
