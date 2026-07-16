@@ -8,7 +8,7 @@
   "engines": { "node": ">=18" },
   "exports": "./src/index.js",
   "bin": { "groundproof": "./bin/groundproof.js" },
-  "files": ["bin", "src", "site", "fixtures", "demo.sh", "DESIGN.md", "README.md", "LICENSE"],
+  "files": ["bin", "src", "site", "fixtures", "scripts", "demo.sh", "DESIGN.md", "README.md", "LICENSE"],
   "scripts": {
     "test": "node --test",
     "demo": "node ./bin/groundproof.js demo"

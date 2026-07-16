@@ -1,0 +1,25 @@
+# Small hand-authored sample for illustration — NOT an official benchmark. Stable public facts; labels authored for groundproof. Point the loader at FEVER/MNLI dev for real numbers.
+{"id":"s01","claim":"Earth has one natural satellite.","excerpt":"The Moon is Earth's only natural satellite.","gold":"supported","assertedConfidence":"high"}
+{"id":"s02","claim":"Water freezes at 0 degrees Celsius at standard atmospheric pressure.","excerpt":"At standard atmospheric pressure, pure water freezes at 0 °C.","gold":"supported","assertedConfidence":"high"}
+{"id":"s03","claim":"Paris is the capital of France.","excerpt":"Paris is the capital and largest city of France.","gold":"supported","assertedConfidence":"high"}
+{"id":"s04","claim":"The chemical symbol for gold is Au.","excerpt":"Gold is a chemical element with the symbol Au.","gold":"supported","assertedConfidence":"high"}
+{"id":"s05","claim":"Mars is the fourth planet from the Sun.","excerpt":"Mars is the fourth planet from the Sun.","gold":"supported","assertedConfidence":"high"}
+{"id":"s06","claim":"The Pacific Ocean is Earth's largest ocean.","excerpt":"The Pacific Ocean is the largest and deepest of Earth's oceanic divisions.","gold":"supported","assertedConfidence":"medium"}
+{"id":"s07","claim":"DNA commonly forms a double helix.","excerpt":"The structure of DNA is a double helix formed by two strands.","gold":"supported","assertedConfidence":"medium"}
+{"id":"s08","claim":"Mount Everest is above 8,000 metres tall.","excerpt":"Mount Everest has an elevation of 8,848.86 metres above sea level.","gold":"supported","assertedConfidence":"medium"}
+{"id":"c01","claim":"Earth has two natural satellites.","excerpt":"The Moon is Earth's only natural satellite.","gold":"contradicted","assertedConfidence":"high"}
+{"id":"c02","claim":"Water freezes at 100 degrees Celsius at standard pressure.","excerpt":"At standard atmospheric pressure, water freezes at 0 °C and boils at 100 °C.","gold":"contradicted","assertedConfidence":"high"}
+{"id":"c03","claim":"Canberra is the capital of New Zealand.","excerpt":"Canberra is the capital city of Australia.","gold":"contradicted","assertedConfidence":"medium"}
+{"id":"c04","claim":"The chemical symbol for gold is Ag.","excerpt":"Gold has the symbol Au; Ag is the symbol for silver.","gold":"contradicted","assertedConfidence":"medium"}
+{"id":"c05","claim":"Mars is the third planet from the Sun.","excerpt":"Earth is the third planet and Mars is the fourth planet from the Sun.","gold":"contradicted","assertedConfidence":"medium"}
+{"id":"c06","claim":"The Pacific Ocean is Earth's smallest ocean.","excerpt":"The Pacific Ocean is the largest of Earth's oceans.","gold":"contradicted","assertedConfidence":"low"}
+{"id":"c07","claim":"DNA is ordinarily single-stranded in a double helix.","excerpt":"DNA's double helix consists of two strands.","gold":"contradicted","assertedConfidence":"low"}
+{"id":"c08","claim":"Mount Everest is 884.886 metres tall.","excerpt":"Mount Everest has an elevation of 8,848.86 metres.","gold":"contradicted","assertedConfidence":"low"}
+{"id":"u01","claim":"Paris had exactly 2,102,650 residents in 2023.","excerpt":"Paris is the capital and largest city of France.","gold":"unsupported","assertedConfidence":"high"}
+{"id":"u02","claim":"Gold was first used as currency in 600 BCE.","excerpt":"Gold is a chemical element with the symbol Au.","gold":"unsupported","assertedConfidence":"medium"}
+{"id":"u03","claim":"Mars has hosted a crewed landing.","excerpt":"Mars is the fourth planet from the Sun and has two small moons.","gold":"unsupported","assertedConfidence":"medium"}
+{"id":"u04","claim":"The Pacific Ocean was named in 1519.","excerpt":"The Pacific Ocean is Earth's largest oceanic division.","gold":"unsupported","assertedConfidence":"medium"}
+{"id":"u05","claim":"DNA was photographed in 1951.","excerpt":"DNA commonly exists as a double helix composed of two strands.","gold":"unsupported","assertedConfidence":"low"}
+{"id":"u06","claim":"Mount Everest is located entirely within Nepal.","excerpt":"Mount Everest is Earth's highest mountain above sea level.","gold":"unsupported","assertedConfidence":"low"}
+{"id":"u07","claim":"Water boils faster in copper pots.","excerpt":"At standard pressure, water boils at 100 °C.","gold":"unsupported","assertedConfidence":"low"}
+{"id":"u08","claim":"Earth's Moon formed exactly 4.51 billion years ago.","excerpt":"The Moon is Earth's only natural satellite.","gold":"unsupported","assertedConfidence":"low"}

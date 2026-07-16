@@ -36,7 +36,7 @@ export async function verifyNormalized(model, { judge = heuristicJudge, fetcher 
   for (const claim of model.claims) {
     const evidence = [];
     for (const item of claim.evidence ?? []) {
-      const entailment = judge.judge({ claim: claim.text, excerpt: item.excerpt ?? '' });
+      const entailment = await judge.judge({ claim: claim.text, excerpt: item.excerpt ?? '' });
       const integrity = await checkIntegrity(item, model.sources, fetcher);
       evidence.push({ url: item.url ?? '', title: item.title ?? null, excerpt: item.excerpt ?? '', entailment, integrity });
     }
@@ -59,7 +59,7 @@ export async function verifyNormalized(model, { judge = heuristicJudge, fetcher 
   const verdicts = ['supported', 'partial', 'unsupported', 'contradicted'];
   const integrity = ['verified', 'unverified-source', 'drifted', 'unreachable'];
   return {
-    judge: { name: judge.name, version: judge.version }, network: Boolean(fetcher), claims,
+    judge: { name: judge.name, version: judge.version, ...(judge.model ? { model: judge.model } : {}) }, network: Boolean(fetcher), claims,
     summary: {
       score, confidence: confidenceFor(score),
       counts: {

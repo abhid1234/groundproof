@@ -8,3 +8,8 @@ export { generateEd25519KeyPair, signEd25519, signHmac, verifyContentId, verifyE
 export { validateInput, validateReceipt } from './validate.js';
 export { runParallelTask, PARALLEL_TASK_ENDPOINT } from './adapters/parallel.js';
 export { loadBenchmark, runBenchmark } from './benchmark.js';
+export { createModelJudge, createOpenAICompatibleComplete, modelJudgeFromEnv, parseModelJudgment } from './judges/model.js';
+export { computeCalibration, computeAssertedCalibration } from './calibration.js';
+export { adaptFever, adaptNli, judgeAgreement, loadEvalDataset, mapFeverLabel, mapNliLabel, parseEvalJsonl, validateEvalItem } from './eval.js';
+export { reliabilitySvg } from './svg.js';
+export { evaluateJudge, runEvaluation } from './evaluate.js';

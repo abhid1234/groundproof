@@ -1,0 +1,554 @@
+{
+  "schema": "groundproof/eval-report@1",
+  "sample": "Results depend on the supplied labels; the shipped data is a small hand-authored illustration, not an official benchmark.",
+  "n": 24,
+  "judge": {
+    "name": "groundproof-heuristic",
+    "version": "1"
+  },
+  "verdictAccuracy": 0.541667,
+  "calibrationBy": "recomputed",
+  "calibration": {
+    "n": 24,
+    "bins": 10,
+    "minBinCount": 5,
+    "table": [
+      {
+        "index": 0,
+        "lower": 0,
+        "upper": 0.1,
+        "count": 0,
+        "meanPredicted": null,
+        "empiricalGroundedRate": null,
+        "gap": null,
+        "lowConfidence": true
+      },
+      {
+        "index": 1,
+        "lower": 0.1,
+        "upper": 0.2,
+        "count": 1,
+        "meanPredicted": 0.187,
+        "empiricalGroundedRate": 0,
+        "gap": 0.187,
+        "lowConfidence": true
+      },
+      {
+        "index": 2,
+        "lower": 0.2,
+        "upper": 0.3,
+        "count": 4,
+        "meanPredicted": 0.21675,
+        "empiricalGroundedRate": 0.25,
+        "gap": 0.03325,
+        "lowConfidence": true
+      },
+      {
+        "index": 3,
+        "lower": 0.3,
+        "upper": 0.4,
+        "count": 3,
+        "meanPredicted": 0.343333,
+        "empiricalGroundedRate": 0,
+        "gap": 0.343333,
+        "lowConfidence": true
+      },
+      {
+        "index": 4,
+        "lower": 0.4,
+        "upper": 0.5,
+        "count": 4,
+        "meanPredicted": 0.439,
+        "empiricalGroundedRate": 0.25,
+        "gap": 0.189,
+        "lowConfidence": true
+      },
+      {
+        "index": 5,
+        "lower": 0.5,
+        "upper": 0.6,
+        "count": 3,
+        "meanPredicted": 0.551333,
+        "empiricalGroundedRate": 0,
+        "gap": 0.551333,
+        "lowConfidence": true
+      },
+      {
+        "index": 6,
+        "lower": 0.6,
+        "upper": 0.7,
+        "count": 2,
+        "meanPredicted": 0.6455,
+        "empiricalGroundedRate": 0.5,
+        "gap": 0.1455,
+        "lowConfidence": true
+      },
+      {
+        "index": 7,
+        "lower": 0.7,
+        "upper": 0.8,
+        "count": 3,
+        "meanPredicted": 0.726,
+        "empiricalGroundedRate": 0.666667,
+        "gap": 0.059333,
+        "lowConfidence": true
+      },
+      {
+        "index": 8,
+        "lower": 0.8,
+        "upper": 0.9,
+        "count": 2,
+        "meanPredicted": 0.8435,
+        "empiricalGroundedRate": 1,
+        "gap": 0.1565,
+        "lowConfidence": true
+      },
+      {
+        "index": 9,
+        "lower": 0.9,
+        "upper": 1,
+        "count": 2,
+        "meanPredicted": 0.9585,
+        "empiricalGroundedRate": 0.5,
+        "gap": 0.4585,
+        "lowConfidence": true
+      }
+    ],
+    "ece": 0.227458,
+    "mce": 0.551333,
+    "brier": 0.211357,
+    "disclaimer": "Small-sample ECE is noisy; run on the full development set for a meaningful population figure."
+  },
+  "results": [
+    {
+      "id": "s01",
+      "claim": "Earth has one natural satellite.",
+      "excerpt": "The Moon is Earth's only natural satellite.",
+      "gold": "supported",
+      "assertedConfidence": "high",
+      "score": 0.427,
+      "verdict": "unsupported",
+      "signals": {
+        "tokenRecall": 0.5,
+        "phraseCoverage": 0.333,
+        "entityAgreement": 0,
+        "numberAgreement": null,
+        "polarityAgreement": true
+      },
+      "reasons": []
+    },
+    {
+      "id": "s02",
+      "claim": "Water freezes at 0 degrees Celsius at standard atmospheric pressure.",
+      "excerpt": "At standard atmospheric pressure, pure water freezes at 0 °C.",
+      "gold": "supported",
+      "assertedConfidence": "high",
+      "score": 0.65,
+      "verdict": "partial",
+      "signals": {
+        "tokenRecall": 0.714,
+        "phraseCoverage": 0.5,
+        "entityAgreement": 0,
+        "numberAgreement": 1,
+        "polarityAgreement": true
+      },
+      "reasons": []
+    },
+    {
+      "id": "s03",
+      "claim": "Paris is the capital of France.",
+      "excerpt": "Paris is the capital and largest city of France.",
+      "gold": "supported",
+      "assertedConfidence": "high",
+      "score": 0.875,
+      "verdict": "supported",
+      "signals": {
+        "tokenRecall": 1,
+        "phraseCoverage": 0.5,
+        "entityAgreement": 1,
+        "numberAgreement": null,
+        "polarityAgreement": true
+      },
+      "reasons": []
+    },
+    {
+      "id": "s04",
+      "claim": "The chemical symbol for gold is Au.",
+      "excerpt": "Gold is a chemical element with the symbol Au.",
+      "gold": "supported",
+      "assertedConfidence": "high",
+      "score": 0.75,
+      "verdict": "supported",
+      "signals": {
+        "tokenRecall": 1,
+        "phraseCoverage": 0,
+        "entityAgreement": 1,
+        "numberAgreement": null,
+        "polarityAgreement": true
+      },
+      "reasons": []
+    },
+    {
+      "id": "s05",
+      "claim": "Mars is the fourth planet from the Sun.",
+      "excerpt": "Mars is the fourth planet from the Sun.",
+      "gold": "supported",
+      "assertedConfidence": "high",
+      "score": 1,
+      "verdict": "supported",
+      "signals": {
+        "tokenRecall": 1,
+        "phraseCoverage": 1,
+        "entityAgreement": 1,
+        "numberAgreement": null,
+        "polarityAgreement": true
+      },
+      "reasons": []
+    },
+    {
+      "id": "s06",
+      "claim": "The Pacific Ocean is Earth's largest ocean.",
+      "excerpt": "The Pacific Ocean is the largest and deepest of Earth's oceanic divisions.",
+      "gold": "supported",
+      "assertedConfidence": "medium",
+      "score": 0.812,
+      "verdict": "supported",
+      "signals": {
+        "tokenRecall": 1,
+        "phraseCoverage": 0.25,
+        "entityAgreement": 1,
+        "numberAgreement": null,
+        "polarityAgreement": true
+      },
+      "reasons": []
+    },
+    {
+      "id": "s07",
+      "claim": "DNA commonly forms a double helix.",
+      "excerpt": "The structure of DNA is a double helix formed by two strands.",
+      "gold": "supported",
+      "assertedConfidence": "medium",
+      "score": 0.725,
+      "verdict": "supported",
+      "signals": {
+        "tokenRecall": 0.8,
+        "phraseCoverage": 0.25,
+        "entityAgreement": 1,
+        "numberAgreement": null,
+        "polarityAgreement": true
+      },
+      "reasons": []
+    },
+    {
+      "id": "s08",
+      "claim": "Mount Everest is above 8,000 metres tall.",
+      "excerpt": "Mount Everest has an elevation of 8,848.86 metres above sea level.",
+      "gold": "supported",
+      "assertedConfidence": "medium",
+      "score": 0.2,
+      "verdict": "contradicted",
+      "signals": {
+        "tokenRecall": 0.667,
+        "phraseCoverage": 0.2,
+        "entityAgreement": 1,
+        "numberAgreement": 0,
+        "polarityAgreement": true
+      },
+      "reasons": [
+        "number-mismatch"
+      ]
+    },
+    {
+      "id": "c01",
+      "claim": "Earth has two natural satellites.",
+      "excerpt": "The Moon is Earth's only natural satellite.",
+      "gold": "contradicted",
+      "assertedConfidence": "high",
+      "score": 0.234,
+      "verdict": "unsupported",
+      "signals": {
+        "tokenRecall": 0.25,
+        "phraseCoverage": 0,
+        "entityAgreement": 0,
+        "numberAgreement": null,
+        "polarityAgreement": true
+      },
+      "reasons": [
+        "low-content-overlap"
+      ]
+    },
+    {
+      "id": "c02",
+      "claim": "Water freezes at 100 degrees Celsius at standard pressure.",
+      "excerpt": "At standard atmospheric pressure, water freezes at 0 °C and boils at 100 °C.",
+      "gold": "contradicted",
+      "assertedConfidence": "high",
+      "score": 0.583,
+      "verdict": "partial",
+      "signals": {
+        "tokenRecall": 0.714,
+        "phraseCoverage": 0.167,
+        "entityAgreement": 0,
+        "numberAgreement": 1,
+        "polarityAgreement": true
+      },
+      "reasons": []
+    },
+    {
+      "id": "c03",
+      "claim": "Canberra is the capital of New Zealand.",
+      "excerpt": "Canberra is the capital city of Australia.",
+      "gold": "contradicted",
+      "assertedConfidence": "medium",
+      "score": 0.521,
+      "verdict": "partial",
+      "signals": {
+        "tokenRecall": 0.5,
+        "phraseCoverage": 0.333,
+        "entityAgreement": 0.5,
+        "numberAgreement": null,
+        "polarityAgreement": true
+      },
+      "reasons": []
+    },
+    {
+      "id": "c04",
+      "claim": "The chemical symbol for gold is Ag.",
+      "excerpt": "Gold has the symbol Au; Ag is the symbol for silver.",
+      "gold": "contradicted",
+      "assertedConfidence": "medium",
+      "score": 0.641,
+      "verdict": "partial",
+      "signals": {
+        "tokenRecall": 0.75,
+        "phraseCoverage": 0,
+        "entityAgreement": 1,
+        "numberAgreement": null,
+        "polarityAgreement": true
+      },
+      "reasons": []
+    },
+    {
+      "id": "c05",
+      "claim": "Mars is the third planet from the Sun.",
+      "excerpt": "Earth is the third planet and Mars is the fourth planet from the Sun.",
+      "gold": "contradicted",
+      "assertedConfidence": "medium",
+      "score": 0.917,
+      "verdict": "supported",
+      "signals": {
+        "tokenRecall": 1,
+        "phraseCoverage": 0.667,
+        "entityAgreement": 1,
+        "numberAgreement": null,
+        "polarityAgreement": true
+      },
+      "reasons": []
+    },
+    {
+      "id": "c06",
+      "claim": "The Pacific Ocean is Earth's smallest ocean.",
+      "excerpt": "The Pacific Ocean is the largest of Earth's oceans.",
+      "gold": "contradicted",
+      "assertedConfidence": "low",
+      "score": 0.703,
+      "verdict": "partial",
+      "signals": {
+        "tokenRecall": 0.75,
+        "phraseCoverage": 0.25,
+        "entityAgreement": 1,
+        "numberAgreement": null,
+        "polarityAgreement": true
+      },
+      "reasons": []
+    },
+    {
+      "id": "c07",
+      "claim": "DNA is ordinarily single-stranded in a double helix.",
+      "excerpt": "DNA's double helix consists of two strands.",
+      "gold": "contradicted",
+      "assertedConfidence": "low",
+      "score": 0.55,
+      "verdict": "partial",
+      "signals": {
+        "tokenRecall": 0.4,
+        "phraseCoverage": 0.25,
+        "entityAgreement": 1,
+        "numberAgreement": null,
+        "polarityAgreement": true
+      },
+      "reasons": [
+        "low-content-overlap"
+      ]
+    },
+    {
+      "id": "c08",
+      "claim": "Mount Everest is 884.886 metres tall.",
+      "excerpt": "Mount Everest has an elevation of 8,848.86 metres.",
+      "gold": "contradicted",
+      "assertedConfidence": "low",
+      "score": 0.2,
+      "verdict": "contradicted",
+      "signals": {
+        "tokenRecall": 0.6,
+        "phraseCoverage": 0.25,
+        "entityAgreement": 1,
+        "numberAgreement": 0,
+        "polarityAgreement": true
+      },
+      "reasons": [
+        "number-mismatch"
+      ]
+    },
+    {
+      "id": "u01",
+      "claim": "Paris had exactly 2,102,650 residents in 2023.",
+      "excerpt": "Paris is the capital and largest city of France.",
+      "gold": "unsupported",
+      "assertedConfidence": "high",
+      "score": 0.3,
+      "verdict": "unsupported",
+      "signals": {
+        "tokenRecall": 0.143,
+        "phraseCoverage": 0,
+        "entityAgreement": 1,
+        "numberAgreement": 0,
+        "polarityAgreement": true
+      },
+      "reasons": [
+        "low-content-overlap"
+      ]
+    },
+    {
+      "id": "u02",
+      "claim": "Gold was first used as currency in 600 BCE.",
+      "excerpt": "Gold is a chemical element with the symbol Au.",
+      "gold": "unsupported",
+      "assertedConfidence": "medium",
+      "score": 0.233,
+      "verdict": "unsupported",
+      "signals": {
+        "tokenRecall": 0.167,
+        "phraseCoverage": 0,
+        "entityAgreement": 0.5,
+        "numberAgreement": 0,
+        "polarityAgreement": true
+      },
+      "reasons": [
+        "low-content-overlap"
+      ]
+    },
+    {
+      "id": "u03",
+      "claim": "Mars has hosted a crewed landing.",
+      "excerpt": "Mars is the fourth planet from the Sun and has two small moons.",
+      "gold": "unsupported",
+      "assertedConfidence": "medium",
+      "score": 0.422,
+      "verdict": "unsupported",
+      "signals": {
+        "tokenRecall": 0.25,
+        "phraseCoverage": 0,
+        "entityAgreement": 1,
+        "numberAgreement": null,
+        "polarityAgreement": true
+      },
+      "reasons": [
+        "low-content-overlap"
+      ]
+    },
+    {
+      "id": "u04",
+      "claim": "The Pacific Ocean was named in 1519.",
+      "excerpt": "The Pacific Ocean is Earth's largest oceanic division.",
+      "gold": "unsupported",
+      "assertedConfidence": "medium",
+      "score": 0.492,
+      "verdict": "partial",
+      "signals": {
+        "tokenRecall": 0.5,
+        "phraseCoverage": 0.333,
+        "entityAgreement": 1,
+        "numberAgreement": 0,
+        "polarityAgreement": true
+      },
+      "reasons": []
+    },
+    {
+      "id": "u05",
+      "claim": "DNA was photographed in 1951.",
+      "excerpt": "DNA commonly exists as a double helix composed of two strands.",
+      "gold": "unsupported",
+      "assertedConfidence": "low",
+      "score": 0.367,
+      "verdict": "unsupported",
+      "signals": {
+        "tokenRecall": 0.333,
+        "phraseCoverage": 0,
+        "entityAgreement": 1,
+        "numberAgreement": 0,
+        "polarityAgreement": true
+      },
+      "reasons": [
+        "low-content-overlap"
+      ]
+    },
+    {
+      "id": "u06",
+      "claim": "Mount Everest is located entirely within Nepal.",
+      "excerpt": "Mount Everest is Earth's highest mountain above sea level.",
+      "gold": "unsupported",
+      "assertedConfidence": "low",
+      "score": 0.415,
+      "verdict": "unsupported",
+      "signals": {
+        "tokenRecall": 0.333,
+        "phraseCoverage": 0.2,
+        "entityAgreement": 0.5,
+        "numberAgreement": null,
+        "polarityAgreement": true
+      },
+      "reasons": [
+        "low-content-overlap"
+      ]
+    },
+    {
+      "id": "u07",
+      "claim": "Water boils faster in copper pots.",
+      "excerpt": "At standard pressure, water boils at 100 °C.",
+      "gold": "unsupported",
+      "assertedConfidence": "low",
+      "score": 0.363,
+      "verdict": "unsupported",
+      "signals": {
+        "tokenRecall": 0.4,
+        "phraseCoverage": 0.25,
+        "entityAgreement": 0,
+        "numberAgreement": null,
+        "polarityAgreement": true
+      },
+      "reasons": [
+        "low-content-overlap"
+      ]
+    },
+    {
+      "id": "u08",
+      "claim": "Earth's Moon formed exactly 4.51 billion years ago.",
+      "excerpt": "The Moon is Earth's only natural satellite.",
+      "gold": "unsupported",
+      "assertedConfidence": "low",
+      "score": 0.187,
+      "verdict": "unsupported",
+      "signals": {
+        "tokenRecall": 0.25,
+        "phraseCoverage": 0,
+        "entityAgreement": 0,
+        "numberAgreement": 0,
+        "polarityAgreement": true
+      },
+      "reasons": [
+        "low-content-overlap"
+      ]
+    }
+  ]
+}

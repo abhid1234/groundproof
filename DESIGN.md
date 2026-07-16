@@ -136,9 +136,66 @@ Multiple excerpts are judged individually. A claim uses its best evidence score,
 bounded corroboration bonus (up to 0.05) when distinct URLs independently score as supported. This
 prevents a pile of weak excerpts from becoming strong evidence.
 
-The judge interface is structural, so an LLM/NLI judge can return the same `{ score, verdict,
-signals, reasons }` shape. Receipts record the judge name and version; scores from different judges
-must not be presented as directly benchmark-equivalent without calibration.
+The judge interface is structural and may be synchronous or asynchronous. `src/judges/model.js`
+fills it with an opt-in model judge that accepts an injected `complete({ system, user })` function.
+It requests a strict, outside-knowledge-free entailment decision as structured JSON, extracts plain
+or fenced JSON defensively, validates the score and verdict, and returns the same `{ score, verdict,
+signals, reasons }` shape. The CLI's real completion function uses an OpenAI-compatible chat
+completions body and reads only `GROUNDPROOF_JUDGE_API_KEY`, `GROUNDPROOF_JUDGE_BASE_URL` (default
+`https://api.openai.com/v1/chat/completions`), and `GROUNDPROOF_JUDGE_MODEL`. Missing credentials fail
+before any request. Keys are never recorded or logged.
+
+Model judging is non-deterministic even with temperature zero. Receipts and eval reports record judge
+name, version, and model ID, but not credentials. Model scores and heuristic scores are not directly
+benchmark-equivalent without calibration. `--compare-judges` evaluates identical claim/excerpt pairs
+and reports exact-verdict agreement, a heuristic/model confusion matrix, and each disagreement; it is
+an agreement diagnostic, not evidence that either judge is correct.
+
+## Labeled evaluation schema and mappings
+
+The generic JSONL schema is one object per line:
+
+```js
+{ id: string, claim: string, excerpt: string,
+  gold: "supported" | "contradicted" | "unsupported",
+  assertedConfidence?: "low" | "medium" | "high" }
+```
+
+Comment lines beginning with `#` are permitted so provenance and limitations can travel with a
+dataset. The pure parser validates every item. The FEVER adapter assumes `SUPPORTED -> supported`,
+`REFUTED -> contradicted`, and `NOT ENOUGH INFO -> unsupported`. The NLI adapter assumes
+`entailment -> supported`, `contradiction -> contradicted`, and `neutral -> unsupported`. These
+mappings collapse dataset-specific semantics: notably, insufficient evidence or NLI neutrality is
+treated as unsupported evidence, not a claim that the proposition is false.
+
+`fixtures/eval/sample.jsonl` contains 24 hand-authored, balanced examples using stable public facts.
+It is a small illustration, **not an official benchmark**, and its labels were authored for this
+project. `scripts/fetch-eval-dataset.sh` documents an optional SNLI download for a user with network;
+it was not run in the offline sandbox, and downloaded data must be mapped through the NLI adapter.
+Use a full public development set such as FEVER or SNLI for meaningful estimates.
+
+## Calibration methodology
+
+For recomputed calibration, each judge support score is treated as a predicted probability that the
+gold label is `supported`; `contradicted` and `unsupported` are both binary non-grounded outcomes.
+Fixed-width bins (10 by default, with score 1.0 in the final bin) report count, mean prediction,
+empirical grounded rate, and absolute gap. ECE is the count-weighted mean absolute bin gap, MCE is
+the maximum non-empty-bin gap, and Brier is the mean squared error against the binary outcome.
+Verdict accuracy is reported separately over the three gold labels; because judges may return
+`partial`, it counts as incorrect when no gold `partial` class exists.
+
+Asserted calibration groups the original labels directly to answer “when the provider says high,
+how often is evidence actually grounded?” Its table does not need numeric probabilities. To also
+compute ECE and Brier, the implementation explicitly assumes `low=0.25`, `medium=0.60`, and
+`high=0.90`; those values are conventions, not learned provider probabilities, so the label table
+should be interpreted independently.
+
+Every report includes `n`, the bin threshold (default 5), a `lowConfidence` marker for bins below it,
+and the disclaimer that small-sample ECE is noisy. The JSON retains item-level results; the
+self-contained SVG shows the perfect-calibration diagonal, observed points sized by count, ECE/MCE/
+Brier, and `n`. On the shipped heuristic sample, ECE is 0.227458 at n=24, and all ten bins are below
+the threshold. That number only describes this authored sample and must not be presented as a
+population calibration result.
 
 ## Citation integrity
 
@@ -248,7 +305,9 @@ content under either key.
 the shipped Parallel-style evidence-backed response with a naive baseline. `-` means standard input.
 Human-readable output is the default for verification/demo and `--json` provides automation output.
 `verify --parallel <question>` invokes the live adapter; `benchmark [dir]` prints a comparison table
-or JSON for the labeled offline sample.
+or JSON for the labeled offline sample. `eval [dataset]` runs a heuristic or opt-in model judge,
+reports verdict accuracy and calibration by recomputed score or asserted label, optionally compares
+judges, and writes a self-contained SVG plus an adjacent JSON report.
 
 A verification gate fails when the score is below `--min-score` (default 0), when
 `--fail-unsupported` finds unsupported/contradicted claims, or when `check` detects an invalid
@@ -265,8 +324,10 @@ receipt/ID/signature. File and schema errors use a distinct non-zero exit code f
   and trust remain the consumer's responsibility.
 - Equal claim weighting is auditable but not a measure of claim importance. Consumers may build
   policy on top without changing the receipt's recorded base score.
-- Provider confidence labels may have meanings calibrated over a population; the per-claim
-  over-confidence flag is a diagnostic disagreement, not a statistical calibration study.
+- Calibration is conditional on the supplied label semantics, sample selection, judge score meaning,
+  and binning. Sparse-bin ECE has high sampling variance and may change with bin boundaries. The
+  shipped n=24 authored sample is an instrument demonstration only; use a representative full dev
+  set, uncertainty estimates, and predeclared methodology for a population claim.
 
 ## Success criterion
 
