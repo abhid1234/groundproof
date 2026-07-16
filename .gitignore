@@ -3,3 +3,5 @@ node_modules/
 INTERVIEW.md
 .DS_Store
 MOCK.md
+PARALLEL_BRIEF*.md
+codex-build*.log
