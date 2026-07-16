@@ -1,0 +1,8 @@
+{
+  "answer": { "language": "JavaScript", "released": 1995 },
+  "claims": [
+    { "path": "/language", "text": "language: JavaScript", "citations": [{ "url": "https://example.test/js", "excerpt": "JavaScript is a programming language." }], "confidence": "high" },
+    { "path": "/released", "text": "released: 1995", "citations": [{ "url": "https://example.test/js", "excerpt": "JavaScript first appeared in 1995." }], "confidence": "high" }
+  ],
+  "sources": [{ "url": "https://example.test/js", "content": "JavaScript is a programming language. JavaScript first appeared in 1995." }]
+}

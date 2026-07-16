@@ -1,0 +1,24 @@
+{
+  "result": {
+    "output": {
+      "content": {
+        "companies": [
+          { "name": "Northstar Labs", "founded": 2021, "employees": 42 },
+          { "name": "Juniper Works", "founded": 2019, "employees": 18 }
+        ]
+      },
+      "basis": [
+        { "path": "/companies/0/name", "claim": "name: Northstar Labs", "citations": [{ "url": "https://example.test/northstar", "excerpt": "Northstar Labs was founded in 2021 and employs 42 people." }], "confidence": "high" },
+        { "path": "/companies/0/founded", "claim": "founded: 2021", "citations": [{ "url": "https://example.test/northstar", "excerpt": "Northstar Labs was founded in 2021 and employs 42 people." }], "confidence": "high" },
+        { "path": "/companies/0/employees", "claim": "employees: 42", "citations": [{ "url": "https://example.test/northstar", "excerpt": "Northstar Labs was founded in 2021 and employs 42 people." }], "confidence": "high" },
+        { "path": "/companies/1/name", "claim": "name: Juniper Works", "citations": [{ "url": "https://example.test/juniper", "excerpt": "Juniper Works, founded in 2019, has 18 employees." }], "confidence": "high" },
+        { "path": "/companies/1/founded", "claim": "founded: 2019", "citations": [{ "url": "https://example.test/juniper", "excerpt": "Juniper Works, founded in 2019, has 18 employees." }], "confidence": "high" },
+        { "path": "/companies/1/employees", "claim": "employees: 18", "citations": [{ "url": "https://example.test/juniper", "excerpt": "Juniper Works, founded in 2019, has 18 employees." }], "confidence": "high" }
+      ],
+      "sources": [
+        { "url": "https://example.test/northstar", "content": "Northstar Labs was founded in 2021 and employs 42 people." },
+        { "url": "https://example.test/juniper", "content": "Juniper Works, founded in 2019, has 18 employees." }
+      ]
+    }
+  }
+}

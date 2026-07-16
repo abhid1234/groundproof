@@ -1,0 +1,17 @@
+{
+  "name": "@avee1234/groundproof",
+  "version": "0.1.0",
+  "description": "Portable research evidence receipts with independent groundedness verification",
+  "type": "module",
+  "license": "MIT",
+  "author": "Abhi Das",
+  "engines": { "node": ">=18" },
+  "exports": "./src/index.js",
+  "bin": { "groundproof": "./bin/groundproof.js" },
+  "files": ["bin", "src", "site", "fixtures", "demo.sh", "DESIGN.md", "README.md", "LICENSE"],
+  "scripts": {
+    "test": "node --test",
+    "demo": "node ./bin/groundproof.js demo"
+  },
+  "keywords": ["ai", "citations", "provenance", "groundedness", "verification"]
+}

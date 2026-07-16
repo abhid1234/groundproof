@@ -1,0 +1,10 @@
+export { canonicalize, contentId } from './canonical.js';
+export { decompose, decomposeProse, decomposeStructured } from './decompose.js';
+export { normalize, normalizeGeneric, normalizeParallel } from './normalize.js';
+export { confidenceFor, heuristicJudge, judgeHeuristic } from './scorer.js';
+export { verifyNormalized } from './verify.js';
+export { createReceipt } from './receipt.js';
+export { generateEd25519KeyPair, signEd25519, signHmac, verifyContentId, verifyEd25519, verifyHmac } from './sign.js';
+export { validateInput, validateReceipt } from './validate.js';
+export { runParallelTask, PARALLEL_TASK_ENDPOINT } from './adapters/parallel.js';
+export { loadBenchmark, runBenchmark } from './benchmark.js';

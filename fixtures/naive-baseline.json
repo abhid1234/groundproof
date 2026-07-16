@@ -1,0 +1,26 @@
+{
+  "provider": "naive-baseline",
+  "answer": "Parallel Web Systems builds web infrastructure for machine reasoning. Its Task API guarantees every answer is factually correct. Basis can include citations, excerpts, reasoning, and confidence for individual output fields.",
+  "claims": [
+    {
+      "text": "Parallel Web Systems builds web infrastructure for machine reasoning.",
+      "confidence": "high",
+      "evidence": [{ "url": "https://parallel.ai/about", "excerpt": "Parallel builds web infrastructure for machine reasoning." }]
+    },
+    {
+      "text": "Its Task API guarantees every answer is factually correct.",
+      "confidence": "high",
+      "evidence": [{ "url": "https://parallel.ai/docs/task-api", "excerpt": "Task API results contain output content and Basis evidence supporting the output." }]
+    },
+    {
+      "text": "Basis can include citations, excerpts, reasoning, and confidence for individual output fields.",
+      "confidence": "high",
+      "evidence": [{ "url": "https://parallel.ai/docs/basis", "excerpt": "Basis records citations and confidence." }]
+    }
+  ],
+  "sources": [
+    { "url": "https://parallel.ai/about", "content": "Parallel builds web infrastructure for machine reasoning." },
+    { "url": "https://parallel.ai/docs/task-api", "content": "Task API results contain output content and Basis evidence supporting the output." },
+    { "url": "https://parallel.ai/docs/basis", "content": "For individual output fields, Basis includes citations, supporting excerpts, reasoning, and a confidence level." }
+  ]
+}

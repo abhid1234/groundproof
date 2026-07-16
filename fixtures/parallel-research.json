@@ -1,0 +1,32 @@
+{
+  "id": "task_demo_parallel",
+  "result": {
+    "output": {
+      "content": "Parallel Web Systems builds web infrastructure for machine reasoning. Its Task API returns an answer together with Basis evidence. Basis can include citations, excerpts, reasoning, and confidence for individual output fields.",
+      "basis": [
+        {
+          "claim": "Parallel Web Systems builds web infrastructure for machine reasoning.",
+          "citations": [{ "url": "https://parallel.ai/about", "title": "Parallel — About", "excerpt": "Parallel Web Systems builds web infrastructure for machine reasoning." }],
+          "confidence": "high",
+          "reasoning": "The company description states the product focus directly."
+        },
+        {
+          "claim": "Its Task API returns an answer together with Basis evidence.",
+          "citations": [{ "url": "https://parallel.ai/docs/task-api", "title": "Task API", "excerpt": "Its Task API returns an answer together with Basis evidence." }],
+          "confidence": "high",
+          "reasoning": "The response shape documents both content and Basis."
+        },
+        {
+          "claim": "Basis can include citations, excerpts, reasoning, and confidence for individual output fields.",
+          "citations": [{ "url": "https://parallel.ai/docs/basis", "title": "Basis", "excerpt": "Basis can include citations, excerpts, reasoning, and confidence for individual output fields." }],
+          "confidence": "high"
+        }
+      ],
+      "sources": [
+        { "url": "https://parallel.ai/about", "title": "Parallel — About", "content": "Parallel Web Systems builds web infrastructure for machine reasoning. Its APIs make the web legible to models." },
+        { "url": "https://parallel.ai/docs/task-api", "title": "Task API", "content": "Its Task API returns an answer together with Basis evidence." },
+        { "url": "https://parallel.ai/docs/basis", "title": "Basis", "content": "Basis can include citations, excerpts, reasoning, and confidence for individual output fields." }
+      ]
+    }
+  }
+}
