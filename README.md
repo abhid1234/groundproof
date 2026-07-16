@@ -7,6 +7,8 @@
 
 **Portable research evidence receipts with independent, reproducible groundedness checks.**
 
+**[▶ Play with it live →](https://groundproof-receipt.vercel.app)** — verify an answer's claims against its evidence, watch the receipt derive, entirely in your browser (the real modules, zero deps).
+
 groundproof turns an answer and its citations into a content-hashed receipt. Each atomic claim keeps
 its supporting excerpts, a separate entailment verdict, citation-integrity state, recomputed
 confidence, and calibration flags. It understands Parallel Task API `content + basis` directly and
