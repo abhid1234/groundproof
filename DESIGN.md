@@ -66,6 +66,11 @@ The Parallel normalizer accepts the Task API response itself or its `result.outp
 structured outputs, matching uses, in order: explicit field paths/keys, claim text, and positional
 association. Basis citations expressed as URLs, citation objects, or source references are resolved
 to evidence records. `reasoning` is preserved as provider metadata but is never treated as evidence.
+When a per-field Basis entry covers a whole multi-sentence prose leaf, that prose is heuristically
+decomposed into atomic claims that share copies of the field's evidence and asserted confidence.
+Structured/enrichment leaves remain one claim per JSON leaf. This behavior is validated against the
+committed real Task API response in `fixtures/parallel-live-sample.json`; sentence and coordination
+boundaries remain heuristic rather than a semantic parse.
 
 The generic normalizer accepts `{ answer, claims?, sources[] }`. Explicit claims may include
 `path`, `text`, `citations`/`evidence`, and confidence. When claims are absent, the decomposer creates
@@ -132,7 +137,8 @@ Missing signal classes are reweighted away rather than receiving free points. Th
 - `unsupported` otherwise;
 - `contradicted` when number/date conflict or predicate-local negation conflict is detected.
 
-Multiple excerpts are judged individually. A claim uses its best evidence score, with a small
+Multiple excerpts are judged individually. A claim uses its best evidence score and verdict (so a
+less relevant excerpt with different numbers cannot override a directly supporting excerpt), with a small
 bounded corroboration bonus (up to 0.05) when distinct URLs independently score as supported. This
 prevents a pile of weak excerpts from becoming strong evidence.
 

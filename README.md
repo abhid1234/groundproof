@@ -60,6 +60,9 @@ It assumes the current Task API schema—adjust the endpoint/shape to match
 [docs.parallel.ai](https://docs.parallel.ai/) if the API differs. The exact wire format cannot be
 verified offline.
 
+Live-validated per-field prose Basis entries are heuristically decomposed into atomic claims that
+share the field's evidence and asserted confidence; structured enrichment leaves stay one-to-one.
+
 Serve [site/index.html](./site/index.html) as described in [site/README.md](./site/README.md) for the
 no-build browser playground. It runs synchronized copies of the real core client-side, including
 claim verdicts, recomputed confidence, flags, aggregate score, and WebCrypto receipt identity. It

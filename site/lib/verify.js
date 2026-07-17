@@ -26,8 +26,8 @@ async function checkIntegrity(evidence, sources, fetcher) {
   }
 }
 
-function overallVerdict(evidence, score) {
-  if (evidence.some((item) => item.entailment.verdict === 'contradicted')) return 'contradicted';
+function overallVerdict(bestEvidence, score) {
+  if (bestEvidence?.entailment.verdict === 'contradicted') return 'contradicted';
   return score >= 0.72 ? 'supported' : score >= 0.45 ? 'partial' : 'unsupported';
 }
 
@@ -44,7 +44,7 @@ export async function verifyNormalized(model, { judge = heuristicJudge, fetcher 
     let score = ranked[0]?.value ?? 0;
     const supportedUrls = new Set(ranked.filter(({ item }) => item.entailment.verdict === 'supported' && item.url).map(({ item }) => item.url));
     if (supportedUrls.size > 1) score += Math.min(0.05, (supportedUrls.size - 1) * 0.025);
-    if (evidence.some((item) => item.entailment.verdict === 'contradicted')) score = Math.min(score, 0.2);
+    if (ranked[0]?.item.entailment.verdict === 'contradicted') score = Math.min(score, 0.2);
     score = round(score);
     const independent = confidenceFor(score);
     const flags = [];
@@ -53,7 +53,7 @@ export async function verifyNormalized(model, { judge = heuristicJudge, fetcher 
     if (evidence.some((item) => item.integrity.status === 'drifted')) flags.push('citation-drift');
     if (evidence.some((item) => item.integrity.status === 'unreachable')) flags.push('source-unreachable');
     if (claim.assertedConfidence && LEVEL[claim.assertedConfidence] > LEVEL[independent]) flags.push('over-confident');
-    claims.push({ path: claim.path, claim: claim.text, assertedConfidence: claim.assertedConfidence, evidence, score, confidence: independent, verdict: overallVerdict(evidence, score), flags });
+    claims.push({ path: claim.path, claim: claim.text, assertedConfidence: claim.assertedConfidence, evidence, score, confidence: independent, verdict: overallVerdict(ranked[0]?.item, score), flags });
   }
   const score = round(claims.length ? claims.reduce((sum, claim) => sum + claim.score, 0) / claims.length : 0);
   const verdicts = ['supported', 'partial', 'unsupported', 'contradicted'];

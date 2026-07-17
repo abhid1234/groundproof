@@ -23,6 +23,29 @@ function numberSignal(claim, excerpt) {
   return { value, mismatch: value < 1 && observed.length > 0, expected, observed };
 }
 
+// Extract the items of a trailing coordinated list ("A, B, and C" / "A and B") of
+// proper-noun-ish members. Returns lowercased item strings, or [] if there is no list.
+function coordinatedList(text) {
+  const item = "[A-Z][\\p{L}.&'-]*(?:\\s+[A-Z][\\p{L}.&'-]*)*";
+  const match = String(text).match(new RegExp(`(${item}(?:\\s*,\\s*${item})*)\\s*,?\\s+and\\s+(${item})`, 'u'));
+  if (!match) return [];
+  const clean = (part) => part.toLowerCase().replace(/^[^\p{L}\p{N}]+|[^\p{L}\p{N}]+$/gu, '').trim();
+  const head = match[1].split(/\s*,\s*/).map(clean).filter(Boolean);
+  return [...head, clean(match[2])].filter(Boolean);
+}
+
+// True when the claim states a coordinated list that is a PROPER SUBSET of the excerpt's
+// list — i.e. the answer dropped one or more members the source includes. General: not
+// tied to any phrasing ("led by", "includes", etc.).
+function incompleteCoordinatedList(claim, excerpt) {
+  const claimItems = coordinatedList(claim);
+  if (claimItems.length < 2) return false;
+  const excerptItems = coordinatedList(excerpt);
+  if (excerptItems.length <= claimItems.length) return false;
+  const present = new Set(excerptItems);
+  return claimItems.every((member) => present.has(member));
+}
+
 export function judgeHeuristic({ claim, excerpt }) {
   const claimTokens = tokens(claim, { content: true });
   const excerptTokens = tokens(excerpt, { content: true });
@@ -35,6 +58,7 @@ export function judgeHeuristic({ claim, excerpt }) {
   const excerptNegated = hasNegation(excerpt);
   const sharedContent = tokenRecall >= 0.35;
   const negationMismatch = sharedContent && claimNegated !== excerptNegated;
+  const listIncomplete = incompleteCoordinatedList(claim, excerpt);
 
   const weighted = [
     [tokenRecall, 0.35], [phraseCoverage, 0.20], [entityAgreement, 0.15],
@@ -44,15 +68,17 @@ export function judgeHeuristic({ claim, excerpt }) {
     weighted.reduce((sum, [, weight]) => sum + weight, 0);
   const contradiction = number.mismatch || negationMismatch;
   if (contradiction) score = Math.min(score, 0.2);
+  else if (listIncomplete) score = Math.min(score, 0.71);
   score = round(score);
   const verdict = contradiction ? 'contradicted' : score >= 0.72 ? 'supported' : score >= 0.45 ? 'partial' : 'unsupported';
   const reasons = [];
   if (number.mismatch) reasons.push('number-mismatch');
   if (negationMismatch) reasons.push('negation-mismatch');
+  if (listIncomplete) reasons.push('incomplete-list');
   if (tokenRecall < 0.45) reasons.push('low-content-overlap');
   return {
     score, verdict,
-    signals: { tokenRecall: round(tokenRecall), phraseCoverage: round(phraseCoverage), entityAgreement: entityAgreement === null ? null : round(entityAgreement), numberAgreement: number.value === null ? null : round(number.value), polarityAgreement: !negationMismatch },
+    signals: { tokenRecall: round(tokenRecall), phraseCoverage: round(phraseCoverage), entityAgreement: entityAgreement === null ? null : round(entityAgreement), numberAgreement: number.value === null ? null : round(number.value), polarityAgreement: !negationMismatch, listComplete: !listIncomplete },
     reasons
   };
 }

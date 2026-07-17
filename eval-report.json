@@ -133,7 +133,8 @@
         "phraseCoverage": 0.333,
         "entityAgreement": 0,
         "numberAgreement": null,
-        "polarityAgreement": true
+        "polarityAgreement": true,
+        "listComplete": true
       },
       "reasons": []
     },
@@ -150,7 +151,8 @@
         "phraseCoverage": 0.5,
         "entityAgreement": 0,
         "numberAgreement": 1,
-        "polarityAgreement": true
+        "polarityAgreement": true,
+        "listComplete": true
       },
       "reasons": []
     },
@@ -167,7 +169,8 @@
         "phraseCoverage": 0.5,
         "entityAgreement": 1,
         "numberAgreement": null,
-        "polarityAgreement": true
+        "polarityAgreement": true,
+        "listComplete": true
       },
       "reasons": []
     },
@@ -184,7 +187,8 @@
         "phraseCoverage": 0,
         "entityAgreement": 1,
         "numberAgreement": null,
-        "polarityAgreement": true
+        "polarityAgreement": true,
+        "listComplete": true
       },
       "reasons": []
     },
@@ -201,7 +205,8 @@
         "phraseCoverage": 1,
         "entityAgreement": 1,
         "numberAgreement": null,
-        "polarityAgreement": true
+        "polarityAgreement": true,
+        "listComplete": true
       },
       "reasons": []
     },
@@ -218,7 +223,8 @@
         "phraseCoverage": 0.25,
         "entityAgreement": 1,
         "numberAgreement": null,
-        "polarityAgreement": true
+        "polarityAgreement": true,
+        "listComplete": true
       },
       "reasons": []
     },
@@ -235,7 +241,8 @@
         "phraseCoverage": 0.25,
         "entityAgreement": 1,
         "numberAgreement": null,
-        "polarityAgreement": true
+        "polarityAgreement": true,
+        "listComplete": true
       },
       "reasons": []
     },
@@ -252,7 +259,8 @@
         "phraseCoverage": 0.2,
         "entityAgreement": 1,
         "numberAgreement": 0,
-        "polarityAgreement": true
+        "polarityAgreement": true,
+        "listComplete": true
       },
       "reasons": [
         "number-mismatch"
@@ -271,7 +279,8 @@
         "phraseCoverage": 0,
         "entityAgreement": 0,
         "numberAgreement": null,
-        "polarityAgreement": true
+        "polarityAgreement": true,
+        "listComplete": true
       },
       "reasons": [
         "low-content-overlap"
@@ -290,7 +299,8 @@
         "phraseCoverage": 0.167,
         "entityAgreement": 0,
         "numberAgreement": 1,
-        "polarityAgreement": true
+        "polarityAgreement": true,
+        "listComplete": true
       },
       "reasons": []
     },
@@ -307,7 +317,8 @@
         "phraseCoverage": 0.333,
         "entityAgreement": 0.5,
         "numberAgreement": null,
-        "polarityAgreement": true
+        "polarityAgreement": true,
+        "listComplete": true
       },
       "reasons": []
     },
@@ -324,7 +335,8 @@
         "phraseCoverage": 0,
         "entityAgreement": 1,
         "numberAgreement": null,
-        "polarityAgreement": true
+        "polarityAgreement": true,
+        "listComplete": true
       },
       "reasons": []
     },
@@ -341,7 +353,8 @@
         "phraseCoverage": 0.667,
         "entityAgreement": 1,
         "numberAgreement": null,
-        "polarityAgreement": true
+        "polarityAgreement": true,
+        "listComplete": true
       },
       "reasons": []
     },
@@ -358,7 +371,8 @@
         "phraseCoverage": 0.25,
         "entityAgreement": 1,
         "numberAgreement": null,
-        "polarityAgreement": true
+        "polarityAgreement": true,
+        "listComplete": true
       },
       "reasons": []
     },
@@ -375,7 +389,8 @@
         "phraseCoverage": 0.25,
         "entityAgreement": 1,
         "numberAgreement": null,
-        "polarityAgreement": true
+        "polarityAgreement": true,
+        "listComplete": true
       },
       "reasons": [
         "low-content-overlap"
@@ -394,7 +409,8 @@
         "phraseCoverage": 0.25,
         "entityAgreement": 1,
         "numberAgreement": 0,
-        "polarityAgreement": true
+        "polarityAgreement": true,
+        "listComplete": true
       },
       "reasons": [
         "number-mismatch"
@@ -413,7 +429,8 @@
         "phraseCoverage": 0,
         "entityAgreement": 1,
         "numberAgreement": 0,
-        "polarityAgreement": true
+        "polarityAgreement": true,
+        "listComplete": true
       },
       "reasons": [
         "low-content-overlap"
@@ -432,7 +449,8 @@
         "phraseCoverage": 0,
         "entityAgreement": 0.5,
         "numberAgreement": 0,
-        "polarityAgreement": true
+        "polarityAgreement": true,
+        "listComplete": true
       },
       "reasons": [
         "low-content-overlap"
@@ -451,7 +469,8 @@
         "phraseCoverage": 0,
         "entityAgreement": 1,
         "numberAgreement": null,
-        "polarityAgreement": true
+        "polarityAgreement": true,
+        "listComplete": true
       },
       "reasons": [
         "low-content-overlap"
@@ -470,7 +489,8 @@
         "phraseCoverage": 0.333,
         "entityAgreement": 1,
         "numberAgreement": 0,
-        "polarityAgreement": true
+        "polarityAgreement": true,
+        "listComplete": true
       },
       "reasons": []
     },
@@ -487,7 +507,8 @@
         "phraseCoverage": 0,
         "entityAgreement": 1,
         "numberAgreement": 0,
-        "polarityAgreement": true
+        "polarityAgreement": true,
+        "listComplete": true
       },
       "reasons": [
         "low-content-overlap"
@@ -506,7 +527,8 @@
         "phraseCoverage": 0.2,
         "entityAgreement": 0.5,
         "numberAgreement": null,
-        "polarityAgreement": true
+        "polarityAgreement": true,
+        "listComplete": true
       },
       "reasons": [
         "low-content-overlap"
@@ -525,7 +547,8 @@
         "phraseCoverage": 0.25,
         "entityAgreement": 0,
         "numberAgreement": null,
-        "polarityAgreement": true
+        "polarityAgreement": true,
+        "listComplete": true
       },
       "reasons": [
         "low-content-overlap"
@@ -544,7 +567,8 @@
         "phraseCoverage": 0,
         "entityAgreement": 0,
         "numberAgreement": 0,
-        "polarityAgreement": true
+        "polarityAgreement": true,
+        "listComplete": true
       },
       "reasons": [
         "low-content-overlap"
