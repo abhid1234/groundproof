@@ -1,0 +1,43 @@
+{
+  "run": {
+    "run_id": "trun_a67482f8062d484aa19f7fdf30899a9e",
+    "interaction_id": "trun_a67482f8062d484aa19f7fdf30899a9e",
+    "status": "completed",
+    "is_active": false,
+    "processor": "base",
+    "metadata": {},
+    "created_at": "2026-07-17T02:58:01.564515Z",
+    "modified_at": "2026-07-17T02:58:44.281431Z"
+  },
+  "output": {
+    "basis": [
+      {
+        "field": "output",
+        "citations": [
+          {
+            "title": "OpenAI's $122B Raise at $852B Valuation [2026] - Tech Insider",
+            "url": "http://tech-insider.org/openai-122-billion-funding-round-852-billion-valuation-2026",
+            "excerpts": [
+              "OpenAI's most recent post-money valuation is $852 billion, announced March 31, 2026 following the close of a <strong>$122 billion</strong> funding round led by Amazon, Nvidia, SoftBank, and And OpenAI's most recent post-money valuation is $852 billion, announced March 31, 2026 following the close of a <strong>$122 billion</strong> funding round led by Amazon, Nvidia, SoftBank, and And",
+              "OpenAI's $122B Raise at $852B Valuation [2026] - Tech Insider May 11, 2026 — OpenAI's $122B round at $852B valuation: Amazon $50B, Nvidia $30B, SoftBank $30B, plus the IPO rehearsal and 35x revenue multiple debate."
+            ]
+          },
+          {
+            "title": "OpenAI IPO: $850B Valuation, $25B Revenue [2026]",
+            "url": "https://tech-insider.org/openai-ipo-850-billion-valuation-2026",
+            "excerpts": [
+              "OpenAI IPO: $850B Valuation, $25B Revenue [2026] Jun 11, 2026 — OpenAI's latest private valuation is $852 billion, set by its $122 billion funding ..."
+            ]
+          }
+        ],
+        "reasoning": "Multiple sources confirm that OpenAI's most recent valuation is $852 billion, following a $122 billion funding round announced on March 31, 2026. The round was led by Amazon, Nvidia, and SoftBank, with specific contributions listed as $50B from Amazon and $30B each from Nvidia and SoftBank.",
+        "confidence": "high"
+      }
+    ],
+    "type": "json",
+    "content": {
+      "output": "OpenAI's most recently reported valuation is $852 billion, set during a $122 billion funding round announced on March 31, 2026. This round was led by Amazon, Nvidia, and SoftBank."
+    },
+    "output_schema": {}
+  }
+}
